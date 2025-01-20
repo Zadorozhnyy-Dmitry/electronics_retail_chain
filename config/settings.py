@@ -23,9 +23,8 @@ INSTALLED_APPS = [
     "rest_framework",
     "users",
     "nodes",
-    'products',
-    'django_filters',
-
+    "products",
+    "django_filters",
 ]
 
 MIDDLEWARE = [
@@ -118,8 +117,7 @@ AUTH_USER_MODEL = "users.User"
 
 REST_FRAMEWORK = {
     # Настройки фильтрации
-    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
-
+    "DEFAULT_FILTER_BACKENDS": ["django_filters.rest_framework.DjangoFilterBackend"],
     # # Настройки JWT-токенов
     # 'DEFAULT_AUTHENTICATION_CLASSES': ['rest_framework_simplejwt.authentication.JWTAuthentication', ],
     #

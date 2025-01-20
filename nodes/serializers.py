@@ -9,7 +9,7 @@ class ElectronicsRetailNodeSerializer(ModelSerializer):
 
     class Meta:
         model = ElectronicsRetailNode
-        fields = '__all__'
+        fields = "__all__"
 
 
 class ElectronicsRetailNodeCreateSerializer(ModelSerializer):
@@ -18,14 +18,14 @@ class ElectronicsRetailNodeCreateSerializer(ModelSerializer):
     class Meta:
         model = ElectronicsRetailNode
         fields = [
-            'name',
-            'email',
-            'country',
-            'city',
-            'street',
-            'home_number',
-            'debt',
-            'node_type',
-            'supplier',
-            'products',
+            "name",
+            "email",
+            "country",
+            "city",
+            "street",
+            "home_number",
+            "debt",
+            "node_type",
+            "supplier",
+            "products",
         ]

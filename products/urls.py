@@ -6,7 +6,7 @@ from products.apps import ProductsConfig
 app_name = ProductsConfig.name
 
 router = SimpleRouter()
-router.register('', ProductViewSet)
+router.register("", ProductViewSet)
 
 urlpatterns = []
 urlpatterns += router.urls

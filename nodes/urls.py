@@ -6,7 +6,7 @@ from nodes.apps import NodesConfig
 app_name = NodesConfig.name
 
 router = SimpleRouter()
-router.register('', ElectronicsRetailNodeViewSet)
+router.register("", ElectronicsRetailNodeViewSet)
 
 urlpatterns = []
 urlpatterns += router.urls

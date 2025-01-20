@@ -5,6 +5,7 @@ from products.serializers import ProductSerializer
 
 class ProductViewSet(ModelViewSet):
     """Контроллер для товара"""
+
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
 

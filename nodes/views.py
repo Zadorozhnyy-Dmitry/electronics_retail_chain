@@ -1,11 +1,15 @@
 from rest_framework.viewsets import ModelViewSet
 from django_filters.rest_framework import DjangoFilterBackend
 from nodes.models import ElectronicsRetailNode
-from nodes.serializers import ElectronicsRetailNodeSerializer, ElectronicsRetailNodeCreateSerializer
+from nodes.serializers import (
+    ElectronicsRetailNodeSerializer,
+    ElectronicsRetailNodeCreateSerializer,
+)
 
 
 class ElectronicsRetailNodeViewSet(ModelViewSet):
     """Контроллер для узла сети"""
+
     queryset = ElectronicsRetailNode.objects.all()
 
     # Выбор сериализатора
@@ -13,9 +17,12 @@ class ElectronicsRetailNodeViewSet(ModelViewSet):
         if self.action == "create":
             return ElectronicsRetailNodeCreateSerializer
         return ElectronicsRetailNodeSerializer
+
     # Фильтрация
     filter_backends = [DjangoFilterBackend]
-    filterset_fields = ['country', ]
+    filterset_fields = [
+        "country",
+    ]
 
     def perform_create(self, serializer):
         """Автоматическая запись пользователя в атрибут owner при создании объекта товара"""
