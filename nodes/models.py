@@ -29,7 +29,7 @@ class ElectronicsRetailNode(models.Model):
     home_number = models.CharField(max_length=10, verbose_name='Номер дома', help_text='Введите название номер дома')
 
     products = models.ManyToManyField(Product, verbose_name='Продукты')
-    supplier = models.OneToOneField(
+    supplier = models.ForeignKey(
         'self',
         on_delete=models.SET_NULL,
         verbose_name='Поставщик',
