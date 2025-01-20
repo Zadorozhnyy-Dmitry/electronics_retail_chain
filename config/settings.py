@@ -24,6 +24,7 @@ INSTALLED_APPS = [
     "users",
     "nodes",
     'products',
+    'django_filters',
 
 ]
 
@@ -114,3 +115,17 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 NULLABLE = {"blank": True, "null": True}
 
 AUTH_USER_MODEL = "users.User"
+
+REST_FRAMEWORK = {
+    # Настройки фильтрации
+    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
+
+    # # Настройки JWT-токенов
+    # 'DEFAULT_AUTHENTICATION_CLASSES': ['rest_framework_simplejwt.authentication.JWTAuthentication', ],
+    #
+    # # Установка прав по умолчанию только с авторизацией
+    # 'DEFAULT_PERMISSION_CLASSES': ['rest_framework.permissions.IsAuthenticated', ],
+    #
+    # # Документация
+    # 'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+}
