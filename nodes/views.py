@@ -5,6 +5,17 @@ from nodes.serializers import (
     ElectronicsRetailNodeSerializer,
     ElectronicsRetailNodeCreateSerializer,
 )
+from rest_framework.generics import ListAPIView
+
+
+class ElectronicsRetailSuppliersViewSet(ListAPIView):
+    """Контроллер только для поставщиков"""
+    queryset = ElectronicsRetailNode.objects.exclude(node_level=2)
+    serializer_class = ElectronicsRetailNodeSerializer
+    filter_backends = [DjangoFilterBackend]
+    filterset_fields = [
+        "country",
+    ]
 
 
 class ElectronicsRetailNodeViewSet(ModelViewSet):
