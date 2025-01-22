@@ -21,10 +21,8 @@ class Product(models.Model):
         help_text="Введите дату выхода продукта на рынок",
     )
     price = models.DecimalField(
-        max_digits=15,
-        decimal_places=2,
-        default=0.00,
-        verbose_name="Стоимость товара")
+        max_digits=15, decimal_places=2, default=0.00, verbose_name="Стоимость товара"
+    )
     owner = models.ForeignKey(User, on_delete=models.SET_NULL, **NULLABLE)
 
     def __str__(self):

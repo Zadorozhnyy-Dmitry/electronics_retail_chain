@@ -48,5 +48,5 @@ class ElectronicsRetailNodeViewSet(ModelViewSet):
             node.node_level = node.supplier.node_level + 1
         else:
             node.node_level = 0
-            node.node_type = 'f'
+            node.node_type = "f"
         node.save()
