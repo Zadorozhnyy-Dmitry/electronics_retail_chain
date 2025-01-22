@@ -46,4 +46,7 @@ class ElectronicsRetailNodeViewSet(ModelViewSet):
         node.owner = self.request.user
         if node.supplier:
             node.node_level = node.supplier.node_level + 1
+        else:
+            node.node_level = 0
+            node.node_type = 'f'
         node.save()

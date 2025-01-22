@@ -87,3 +87,4 @@ class ElectronicsRetailNode(models.Model):
     class Meta:
         verbose_name = "Объект сети"
         verbose_name_plural = "Объекты сети"
+        ordering = ["id"]
