@@ -8,7 +8,14 @@ class UserSerializer(ModelSerializer):
 
     class Meta:
         model = User
-        fields = ('id', "username", 'email', 'is_active', 'is_superuser', 'last_login',)
+        fields = (
+            "id",
+            "username",
+            "email",
+            "is_active",
+            "is_superuser",
+            "last_login",
+        )
 
 
 class UserCreateSerializer(ModelSerializer):
@@ -16,4 +23,7 @@ class UserCreateSerializer(ModelSerializer):
 
     class Meta:
         model = User
-        fields = ("username", "password",)
+        fields = (
+            "username",
+            "password",
+        )

@@ -11,6 +11,8 @@ router.register("", ElectronicsRetailNodeViewSet)
 
 urlpatterns = [
     # маршрутизатор списка только поставщиков
-    path("suppliers/", ElectronicsRetailSuppliersViewSet.as_view(), name="suppliers-list"),
+    path(
+        "suppliers/", ElectronicsRetailSuppliersViewSet.as_view(), name="suppliers-list"
+    ),
 ]
 urlpatterns += router.urls

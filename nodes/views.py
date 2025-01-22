@@ -3,13 +3,15 @@ from django_filters.rest_framework import DjangoFilterBackend
 from nodes.models import ElectronicsRetailNode
 from nodes.serializers import (
     ElectronicsRetailNodeSerializer,
-    ElectronicsRetailNodeCreateSerializer, ElectronicsRetailNodeUpdateSerializer,
+    ElectronicsRetailNodeCreateSerializer,
+    ElectronicsRetailNodeUpdateSerializer,
 )
 from rest_framework.generics import ListAPIView
 
 
 class ElectronicsRetailSuppliersViewSet(ListAPIView):
     """Контроллер только для поставщиков"""
+
     queryset = ElectronicsRetailNode.objects.exclude(node_level=2)
     serializer_class = ElectronicsRetailNodeSerializer
     filter_backends = [DjangoFilterBackend]
@@ -27,7 +29,7 @@ class ElectronicsRetailNodeViewSet(ModelViewSet):
     def get_serializer_class(self):
         if self.action == "create":
             return ElectronicsRetailNodeCreateSerializer
-        elif self.action == 'partial_update' or self.action == 'update':
+        elif self.action == "partial_update" or self.action == "update":
             return ElectronicsRetailNodeUpdateSerializer
         return ElectronicsRetailNodeSerializer
 

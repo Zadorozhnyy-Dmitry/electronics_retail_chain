@@ -52,7 +52,7 @@ class ElectronicsRetailNode(models.Model):
         max_digits=15,
         decimal_places=2,
         verbose_name="Задолженность перед поставщиком, руб",
-        **NULLABLE
+        **NULLABLE,
     )
     created_at = models.DateField(auto_now_add=True, verbose_name="Дата создания")
     node_level = models.IntegerField(

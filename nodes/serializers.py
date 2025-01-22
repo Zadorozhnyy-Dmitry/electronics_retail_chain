@@ -13,6 +13,7 @@ class ElectronicsRetailNodeSerializer(serializers.ModelSerializer):
 
 class ElectronicsRetailNodeUpdateSerializer(serializers.ModelSerializer):
     """Сериализатор для узла сети - запрет на редактирование поля задолженности"""
+
     debt = serializers.DecimalField(read_only=True)
 
     class Meta:

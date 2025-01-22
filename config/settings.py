@@ -26,8 +26,7 @@ INSTALLED_APPS = [
     "nodes",
     "products",
     "django_filters",
-    'rest_framework_simplejwt',
-
+    "rest_framework_simplejwt",
 ]
 
 MIDDLEWARE = [
@@ -89,9 +88,9 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 # Internationalization
-LANGUAGE_CODE = 'ru-ru'
+LANGUAGE_CODE = "ru-ru"
 
-TIME_ZONE = 'Europe/Moscow'
+TIME_ZONE = "Europe/Moscow"
 
 USE_I18N = True
 
@@ -112,19 +111,21 @@ REST_FRAMEWORK = {
     # Настройки фильтрации
     "DEFAULT_FILTER_BACKENDS": ["django_filters.rest_framework.DjangoFilterBackend"],
     # Настройки JWT-токенов
-    'DEFAULT_AUTHENTICATION_CLASSES': ['rest_framework_simplejwt.authentication.JWTAuthentication', ],
-
+    "DEFAULT_AUTHENTICATION_CLASSES": [
+        "rest_framework_simplejwt.authentication.JWTAuthentication",
+    ],
     # Установка прав по умолчанию только с авторизацией
-    'DEFAULT_PERMISSION_CLASSES': ['users.permissions.IsActive', ],
-
+    "DEFAULT_PERMISSION_CLASSES": [
+        "users.permissions.IsActive",
+    ],
     # # Документация
     # 'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
 }
 
 SIMPLE_JWT = {
-    'ACCESS_TOKEN_LIFETIME': timedelta(days=1),
-    'REFRESH_TOKEN_LIFETIME': timedelta(days=20),
-    'UPDATE_LAST_LOGIN': True,
-    'AUTH_COOKIE_SECURE': False,
-    'AUTH_COOKIE_SAMESITE': 'Lax'
+    "ACCESS_TOKEN_LIFETIME": timedelta(days=1),
+    "REFRESH_TOKEN_LIFETIME": timedelta(days=20),
+    "UPDATE_LAST_LOGIN": True,
+    "AUTH_COOKIE_SECURE": False,
+    "AUTH_COOKIE_SAMESITE": "Lax",
 }
