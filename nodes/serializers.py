@@ -1,10 +1,9 @@
-from rest_framework.serializers import ModelSerializer, SerializerMethodField
+from rest_framework import serializers
 
 from nodes.models import ElectronicsRetailNode
-from products.models import Product
 
 
-class ElectronicsRetailNodeSerializer(ModelSerializer):
+class ElectronicsRetailNodeSerializer(serializers.ModelSerializer):
     """Сериализатор для узла сети"""
 
     class Meta:
@@ -12,7 +11,16 @@ class ElectronicsRetailNodeSerializer(ModelSerializer):
         fields = "__all__"
 
 
-class ElectronicsRetailNodeCreateSerializer(ModelSerializer):
+class ElectronicsRetailNodeUpdateSerializer(serializers.ModelSerializer):
+    """Сериализатор для узла сети - запрет на редактирование поля задолженности"""
+    debt = serializers.DecimalField(read_only=True)
+
+    class Meta:
+        model = ElectronicsRetailNode
+        fields = "__all__"
+
+
+class ElectronicsRetailNodeCreateSerializer(serializers.ModelSerializer):
     """Сериализатор для создания узла сети"""
 
     class Meta:

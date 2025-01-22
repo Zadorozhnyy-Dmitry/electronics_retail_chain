@@ -48,8 +48,11 @@ class ElectronicsRetailNode(models.Model):
     supplier = models.ForeignKey(
         "self", on_delete=models.SET_NULL, verbose_name="Поставщик", **NULLABLE
     )
-    debt = models.FloatField(
-        verbose_name="Задолженность перед поставщиком, руб", **NULLABLE
+    debt = models.DecimalField(
+        max_digits=15,
+        decimal_places=2,
+        verbose_name="Задолженность перед поставщиком, руб",
+        **NULLABLE
     )
     created_at = models.DateField(auto_now_add=True, verbose_name="Дата создания")
     node_level = models.IntegerField(

@@ -3,7 +3,7 @@ from django_filters.rest_framework import DjangoFilterBackend
 from nodes.models import ElectronicsRetailNode
 from nodes.serializers import (
     ElectronicsRetailNodeSerializer,
-    ElectronicsRetailNodeCreateSerializer,
+    ElectronicsRetailNodeCreateSerializer, ElectronicsRetailNodeUpdateSerializer,
 )
 from rest_framework.generics import ListAPIView
 
@@ -27,6 +27,8 @@ class ElectronicsRetailNodeViewSet(ModelViewSet):
     def get_serializer_class(self):
         if self.action == "create":
             return ElectronicsRetailNodeCreateSerializer
+        elif self.action == 'partial_update' or self.action == 'update':
+            return ElectronicsRetailNodeUpdateSerializer
         return ElectronicsRetailNodeSerializer
 
     # Фильтрация
@@ -39,7 +41,7 @@ class ElectronicsRetailNodeViewSet(ModelViewSet):
         """Автоматическая запись пользователя в атрибут owner при создании объекта товара"""
         """Автоматическая запись уровня иерархии"""
         node = serializer.save()
-        # node.owner = self.request.user
+        node.owner = self.request.user
         if node.supplier:
             node.node_level = node.supplier.node_level + 1
         node.save()
